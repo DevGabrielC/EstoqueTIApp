@@ -13,11 +13,13 @@ import static com.github.devgabrielc.model.database.DatabaseConnection.connect;
 import static com.github.devgabrielc.model.controllers.LoginController.usuarioLogado;
 
 public class Functions {
+
+    public static String dataHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
     public static void registrarHistorico(String usuario, String acao, String descricao) {
         String historico = "INSERT INTO historico (usuario, acao, descricao, data_hora) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.connect()) {
-            String dataHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
             PreparedStatement pstmt = connect().prepareStatement(historico);
             pstmt.setString(1, usuarioLogado);

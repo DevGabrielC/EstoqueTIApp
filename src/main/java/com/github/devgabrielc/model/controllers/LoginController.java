@@ -12,7 +12,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-// 1. IMPORTAR A BIBLIOTECA BCRYPT
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
@@ -21,6 +20,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static com.github.devgabrielc.model.services.Functions.dataHora;
 import static com.github.devgabrielc.model.services.Functions.showAlertError;
 
 public class LoginController {
@@ -34,32 +37,34 @@ public class LoginController {
     @FXML
     private Button registerButton;
 
+    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+
     public void setStage(Stage stage) {
     }
 
-    // Ação para acessar a tela principal (Nenhuma mudança aqui)
     @FXML
     public void handleLoginButton(ActionEvent event) {
         String username = userTextField.getText();
-        String password = passwordField.getText(); // A senha em texto plano
+        String password = passwordField.getText();
 
-        // A lógica de validação foi movida para o novo método "validarLogin"
+        logger.info("INFO | {} | Tentativa de login | Usuario: {}", dataHora, username);
+
         if (validarLogin(username, password)) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/views/MainScreen.fxml"));
                 Parent root = loader.load();
 
-                // Configura o Stage atual para exibir a MainController
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.setMaximized(true);
                 stage.setTitle("Estoque TI");
                 stage.show();
+                logger.info("INFO | {} | Login bem sucedido | Usuario: {}", dataHora, username);
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error("ERROR | {} | {} ", dataHora, e.getMessage());
             }
         } else {
-            showAlertError("Erro!", "Usuário ou senha incorretos.");
+            logger.error("WARN | {} | Login falhou | Usuario ou senha incorretos.", dataHora);
         }
     }
 
@@ -74,7 +79,7 @@ public class LoginController {
             stage.setTitle("Estoque TI");
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("ERROR | {} | {} ", dataHora, e.getMessage());
         }
     }
 
@@ -87,7 +92,7 @@ public class LoginController {
             ResultSet rs = pstmt.executeQuery();
             return rs.next();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("ERROR | {} | {} ", dataHora, e.getMessage());
         }
         return false;
     }
@@ -113,17 +118,14 @@ public class LoginController {
 
                         return true;
                     } else {
-                        // Senha incorreta
                         return false;
                     }
                 } else {
-                    // Utilizador não encontrado
                     return false;
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            showAlertError("Erro de Login", "Não foi possível verificar as credenciais.");
+            logger.error("ERROR | {} | Nao foi possivel verificar as credenciais", dataHora);
             return false;
         }
     }
