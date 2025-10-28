@@ -37,8 +37,11 @@ build/
 ### Mac OS ###
 .DS_Store
 
-# Ignorar ficheiros de configuração local e credenciais
+### env ###
 .env
 
-# Ignorar ficheiros do IntelliJ
+### IntelliJ ###
 .idea/
+
+### Target ###
+.target/
