@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane cache="true" maxHeight="428.0" maxWidth="420.0" minHeight="428.0" minWidth="420.0" prefHeight="428.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.devgabrielc.model.controllers.UsoConsumoController">
+   <children>
+      <Text layoutX="115.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Uso e Consumo">
+         <font>
+            <Font name="Calibri" size="30.0" />
+         </font>
+      </Text>
+      <Label layoutX="32.0" layoutY="81.0" prefHeight="18.0" prefWidth="153.0" text="Grupo Equipamento:">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="116.0" prefHeight="18.0" prefWidth="153.0" text="Tipo Equipamento:">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="151.0" prefHeight="18.0" prefWidth="153.0" text="Marca:">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="186.0" prefHeight="18.0" prefWidth="153.0" text="Modelo:">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="221.0" prefHeight="18.0" prefWidth="153.0" text="Quantidade:">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="256.0" prefHeight="18.0" prefWidth="153.0" text="Descrição:">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="addButton" layoutX="125.0" layoutY="365.0" mnemonicParsing="false" onAction="#handleAddMateriais" prefWidth="69.0" text="Adicionar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="cancelButton" layoutX="234.0" layoutY="365.0" mnemonicParsing="false" onAction="#handleCancelar" text="Cancelar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextField fx:id="grupoEquipamentoField" layoutX="192.0" layoutY="77.0" prefWidth="180.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextField fx:id="tipoEquipamentoField" layoutX="192.0" layoutY="112.0" prefWidth="180.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextField fx:id="marcaField" layoutX="192.0" layoutY="147.0" prefWidth="180.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextField fx:id="modeloField" layoutX="192.0" layoutY="182.0" prefWidth="180.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextField fx:id="quantidadeField" layoutX="192.0" layoutY="217.0" prefWidth="180.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextArea fx:id="descricaoArea" layoutX="192.0" layoutY="256.0" prefHeight="87.0" prefWidth="180.0" wrapText="true">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextArea>
+   </children>
+</AnchorPane>
