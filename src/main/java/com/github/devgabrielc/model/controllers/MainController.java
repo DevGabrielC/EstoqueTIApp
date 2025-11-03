@@ -95,7 +95,7 @@ public class MainController {
             LoginController.usuarioLogado = null;
             logger.info("Usuario {} fez logout.", usuarioQueSaiu);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/views/LoginScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/view/LoginScreen.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) logoutButton.getScene().getWindow();
@@ -205,7 +205,7 @@ public class MainController {
     @FXML
     private void handleAddScreen(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(MainController.class.getResource("/com/github/devgabrielc/model/views/AddScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainController.class.getResource("/com/github/devgabrielc/model/view/AddScreen.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);

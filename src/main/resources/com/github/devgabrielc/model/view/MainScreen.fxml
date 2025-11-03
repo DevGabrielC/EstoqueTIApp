@@ -11,25 +11,25 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane cache="true" minHeight="400.0" minWidth="600.0" prefWidth="1013.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.devgabrielc.model.controllers.MainController">
+<AnchorPane cache="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="1013.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.devgabrielc.model.controllers.MainController">
    <children>
       <TableView fx:id="table" editable="true" layoutY="177.0" minHeight="400.0" minWidth="600.0" prefHeight="514.0" prefWidth="1013.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="177.0">
          <columns>
-            <TableColumn fx:id="ID" prefWidth="26.0" resizable="false" text="ID" />
-            <TableColumn fx:id="grupoEquipamento" prefWidth="129.0" resizable="false" text="Grupo Equipamento" />
-            <TableColumn fx:id="tipoEquipamento" prefWidth="127.0" text="Tipo Equipamento" />
-            <TableColumn fx:id="marca" prefWidth="77.0" text="Marca" />
-            <TableColumn fx:id="modelo" prefWidth="97.0" text="Modelo" />
-            <TableColumn fx:id="numeroSerie" prefWidth="115.0" text="Número de Série" />
-            <TableColumn fx:id="quantidade" prefWidth="79.0" text="Quantidade" />
-            <TableColumn fx:id="patrimonio" prefWidth="76.0" text="Patrimônio" />
-            <TableColumn fx:id="descricao" maxWidth="1043.0" prefWidth="296.0" text="Descrição" />
+            <TableColumn fx:id="ID" maxWidth="25.0" minWidth="25.0" prefWidth="25.0" resizable="false" text="ID" />
+            <TableColumn fx:id="grupoEquipamento" maxWidth="250.0" minWidth="150.0" prefWidth="150.0" text="Grupo Equipamento" />
+            <TableColumn fx:id="tipoEquipamento" maxWidth="250.0" minWidth="150.0" prefWidth="150.0" text="Tipo Equipamento" />
+            <TableColumn fx:id="marca" maxWidth="150.0" minWidth="55.0" prefWidth="55.0" text="Marca" />
+            <TableColumn fx:id="modelo" maxWidth="200.0" minWidth="60.0" prefWidth="60.0" text="Modelo" />
+            <TableColumn fx:id="numeroSerie" maxWidth="200.0" minWidth="120.0" prefWidth="120.0" text="Número de Série" />
+            <TableColumn fx:id="quantidade" maxWidth="95.0" minWidth="90.0" prefWidth="90.0" text="Quantidade" />
+            <TableColumn fx:id="patrimonio" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Patrimônio" />
+            <TableColumn fx:id="descricao" maxWidth="4000.0" minWidth="250.0" prefWidth="250.0" text="Descrição" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label fx:id="tituloLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="357.0" layoutY="14.0" prefHeight="54.0" prefWidth="1024.0" style="-fx-font-size: 40px;" text="ESTOQUE TI EMPX" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Label fx:id="tituloLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="357.0" layoutY="14.0" prefHeight="54.0" prefWidth="1024.0" styleClass="titulo-principal-label" text="ESTOQUE TI EMPX" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
             <Font name="Calibri" size="36.0" />
          </font>
@@ -54,7 +54,7 @@
                   <Font name="Calibri" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="editButton" mnemonicParsing="false" onAction="#handleEditScreen" prefHeight="25.0" prefWidth="67.0" text="Editar">
+            <Button fx:id="editButton" mnemonicParsing="false" onAction="#handleEditScreen" prefHeight="22.0" prefWidth="89.0" text="Editar">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -64,11 +64,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="removerButton" minWidth="52.0" mnemonicParsing="false" onAction="#handleRemoveScreen" prefHeight="25.0" prefWidth="67.0" text="Remover">
+            <Button fx:id="removerButton" mnemonicParsing="false" onAction="#handleRemoveScreen" prefHeight="25.0" prefWidth="67.0" text="Remover">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="addScreen" minWidth="72.0" mnemonicParsing="false" onAction="#handleAddScreen" prefHeight="25.0" prefWidth="75.0" text="Adicionar">
+            <Button fx:id="addScreen" mnemonicParsing="false" onAction="#handleAddScreen" prefHeight="24.0" prefWidth="84.0" text="Adicionar">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -80,7 +80,7 @@
             <Font name="Calibri" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="searchField" layoutX="783.0" layoutY="142.0" prefHeight="25.0" prefWidth="207.0" promptText="Ex.: Notebook" AnchorPane.rightAnchor="33.0">
+      <TextField fx:id="searchField" layoutX="783.0" layoutY="142.0" prefHeight="25.0" prefWidth="207.0" promptText="Ex.: Notebook" stylesheets="@styles.css" AnchorPane.rightAnchor="33.0">
          <font>
             <Font name="Calibri" size="13.0" />
          </font>

@@ -81,7 +81,7 @@ public class UsoConsumoController {
     @FXML
     void handleCancelar(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/views/AddScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/view/AddScreen.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) cancelButton.getScene().getWindow();

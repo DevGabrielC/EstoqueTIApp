@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -78,7 +77,7 @@ public class RegisterController {
     }
     private void voltarParaLogin() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/views/LoginScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/view/LoginScreen.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) cancelButton.getScene().getWindow();

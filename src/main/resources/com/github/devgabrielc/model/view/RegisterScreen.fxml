@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="350.0" minWidth="408.0" prefHeight="350.0" prefWidth="408.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.devgabrielc.model.controllers.RegisterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.devgabrielc.model.controllers.RegisterController">
    <children>
-      <Label layoutX="159.0" layoutY="6.0" prefHeight="36.0" prefWidth="83.0" text="Cadastrar">
+      <Label fx:id="tituloLabel" layoutY="8.0" prefHeight="36.0" prefWidth="400.0" styleClass="titulo-label" stylesheets="@styles.css" text="Cadastrar">
          <font>
-            <Font name="Calibri" size="20.0" />
+            <Font name="Calibri" size="64.0" />
          </font>
       </Label>
       <Label fx:id="userLabel" layoutX="29.0" layoutY="51.0" prefHeight="23.0" prefWidth="117.0" text="Usuário:">

@@ -9,44 +9,44 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="428.0" maxWidth="420.0" minHeight="428.0" minWidth="420.0" prefHeight="428.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.devgabrielc.model.controllers.AtivoImobilizadoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="420.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.devgabrielc.model.controllers.AtivoImobilizadoController">
    <children>
-      <Text layoutX="104.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ativo Imobilizado">
+      <Text layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titulo-label" text="Ativo Imobilizado" textAlignment="CENTER" wrappingWidth="420.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
             <Font name="Calibri" size="30.0" />
          </font>
       </Text>
-      <Label layoutX="27.0" layoutY="65.0" prefHeight="18.0" prefWidth="158.0" text="Grupo Equipamento:">
+      <Label layoutX="27.0" layoutY="65.0" prefHeight="18.0" prefWidth="158.0" text="Grupo Equipamento:" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="235.0">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="100.0" prefHeight="18.0" prefWidth="158.0" text="Tipo Equipamento:">
+      <Label layoutX="27.0" layoutY="100.0" prefHeight="18.0" prefWidth="158.0" text="Tipo Equipamento:" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="235.0">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="135.0" prefHeight="18.0" prefWidth="158.0" text="Marca:">
+      <Label layoutX="27.0" layoutY="135.0" prefHeight="18.0" prefWidth="158.0" text="Marca:" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="235.0">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="205.0" prefHeight="18.0" prefWidth="158.0" text="Número de Série:">
+      <Label layoutX="27.0" layoutY="205.0" prefHeight="18.0" prefWidth="158.0" text="Número de Série:" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="235.0">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="170.0" prefHeight="18.0" prefWidth="158.0" text="Modelo:">
+      <Label layoutX="27.0" layoutY="170.0" prefHeight="18.0" prefWidth="158.0" text="Modelo:" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="235.0">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="240.0" prefHeight="18.0" prefWidth="158.0" text="Patrimônio:">
+      <Label layoutX="27.0" layoutY="240.0" prefHeight="18.0" prefWidth="158.0" text="Patrimônio:" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="235.0">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="275.0" prefHeight="18.0" prefWidth="158.0" text="Descrição:">
+      <Label layoutX="27.0" layoutY="275.0" prefHeight="18.0" prefWidth="158.0" text="Descrição:" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="235.0">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
@@ -75,15 +75,15 @@
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
-      <TextArea fx:id="descricaoArea" layoutX="191.0" layoutY="271.0" prefHeight="87.0" prefWidth="180.0" wrapText="true">
+      <TextArea fx:id="descricaoArea" layoutX="191.0" layoutY="271.0" prefHeight="87.0" prefWidth="180.0" styleClass="text-area" stylesheets="@styles.css" wrapText="true">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextArea>
-      <Button fx:id="addButton" layoutX="123.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleAddMateriais" prefWidth="69.0" text="Adicionar">
+      <Button fx:id="addButton" layoutX="123.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleAddMateriais" prefHeight="25.0" prefWidth="85.0" text="Adicionar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="cancelButton" layoutX="232.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleCancelar" prefWidth="69.0" text="Cancelar">
+      <Button fx:id="cancelButton" layoutX="232.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleCancelar" prefHeight="25.0" prefWidth="85.0" text="Cancelar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

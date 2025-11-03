@@ -50,7 +50,7 @@ public class LoginController {
 
         if (validarLogin(username, password)) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/views/MainScreen.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/view/MainScreen.fxml"));
                 Parent root = loader.load();
 
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -71,7 +71,7 @@ public class LoginController {
     @FXML
     void handleRegisterScreen(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/views/RegisterScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/view/RegisterScreen.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) registerButton.getScene().getWindow();
             Scene scene = new Scene(root);

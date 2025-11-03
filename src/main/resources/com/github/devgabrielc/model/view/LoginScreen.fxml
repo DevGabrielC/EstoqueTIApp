@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="290.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.devgabrielc.model.controllers.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="330.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.devgabrielc.model.controllers.LoginController">
    <children>
       <Label fx:id="userLabel" layoutX="27.0" layoutY="73.0" prefHeight="23.0" prefWidth="68.0" text="Usuário:">
          <font>
@@ -20,7 +20,7 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="loginButton" layoutX="118.0" layoutY="173.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="34.0" prefWidth="95.0" text="Login">
+      <Button fx:id="loginButton" layoutX="118.0" layoutY="180.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="27.0" prefWidth="95.0" text="Login">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
@@ -28,7 +28,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="registerButton" layoutX="118.0" layoutY="225.0" mnemonicParsing="false" onAction="#handleRegisterScreen" text="Cadastrar">
+      <Button fx:id="registerButton" layoutX="118.0" layoutY="225.0" mnemonicParsing="false" onAction="#handleRegisterScreen" prefHeight="30.0" prefWidth="95.0" text="Cadastrar">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
@@ -44,7 +44,7 @@
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></PasswordField>
-      <Label layoutX="94.0" layoutY="14.0" prefHeight="36.0" prefWidth="153.0" text="Estoque TI EMPX">
+      <Label layoutX="1.0" layoutY="14.0" prefHeight="36.0" prefWidth="330.0" styleClass="titulo-label" text="Estoque TI EMPX">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>

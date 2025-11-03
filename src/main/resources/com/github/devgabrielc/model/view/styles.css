@@ -1,0 +1,56 @@
+.root {
+    -fx-cor-fundo: #CBDAD5;
+    -fx-cor-hover: #89A7B1;
+    -fx-cor-principal: #566981;
+    -fx-cor-texto: #3A415A;
+    -fx-cor-titulo: #34344E;
+
+    -fx-text-fill: black;
+    -fx-font-family: "Inter Semi Bold";
+    -fx-background-color: -fx-cor-fundo;
+}
+
+.table-view {
+    -fx-background-color: -fx-cor-hover;
+}
+
+.button {
+    -fx-background-color: -fx-cor-principal; /* Usa a variável */
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: -fx-cor-hover; /* Usa a variável */
+    -fx-cursor: hand;
+}
+
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-cor-texto;
+    -fx-font-weight: bold;
+}
+
+.text-field, .text-area, .password-field {
+    -fx-background-color: -fx-cor-hover;
+    -fx-background-radius: 5px;
+    -fx-border-color: -fx-cor-hover;
+    -fx-border-radius: 5px;
+}
+
+.titulo-label {
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-font-size: 25px;
+    -fx-text-fill: -fx-cor-titulo;
+    -fx-font-weight: bold;
+}
+
+.titulo-principal-label {
+    -fx-alignment: center;
+    -fx-font-size: 40px;
+    -fx-text-fill: -fx-cor-titulo;
+    -fx-font-weight: bold;
+}

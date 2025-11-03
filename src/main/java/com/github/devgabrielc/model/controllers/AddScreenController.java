@@ -25,12 +25,11 @@ public class AddScreenController {
     private Button ativoImobilizadoButton;
 
     private static final Logger logger = LoggerFactory.getLogger(AddScreenController.class);
-
     // Ação do botão de Ativo Imobilizado
     @FXML
     void handleAtivoImobilizadoScreen(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/views/AtivoImobilizado.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/view/AtivoImobilizado.fxml"));
             Parent initialize = loader.load();
             Stage stage = (Stage) ativoImobilizadoButton.getScene().getWindow();
             Scene scene = new Scene(initialize);
@@ -45,7 +44,7 @@ public class AddScreenController {
     @FXML
     void handleUsoConsumoScreen(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/views/UsoConsumo.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/view/UsoConsumo.fxml"));
             Parent initialize = loader.load();
             Stage stage = (Stage) usoConsumoButton.getScene().getWindow();
             Scene scene = new Scene(initialize);
@@ -60,7 +59,7 @@ public class AddScreenController {
     @FXML
     void handleCancelar(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/views/MainScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/view/MainScreen.fxml"));
             Parent initialize = loader.load();
 
             Stage stage = (Stage) cancelButton.getScene().getWindow();
