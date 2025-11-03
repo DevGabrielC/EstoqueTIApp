@@ -49,7 +49,7 @@
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></PasswordField>
-      <Label fx:id="primeiroNomeLabel" layoutX="29.0" layoutY="151.0" prefHeight="23.0" prefWidth="117.0" text="Primeiro Nome:">
+      <Label fx:id="primeiroNomeLabel" layoutX="29.0" layoutY="151.0" prefHeight="23.0" prefWidth="117.0" text="Primeiro nome:">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>

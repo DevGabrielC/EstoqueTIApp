@@ -4,10 +4,15 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 import java.sql.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import static com.github.devgabrielc.model.services.Functions.showAlertError;
 
 public class DatabaseConnection {
     private static final Dotenv dotenv = Dotenv.load();
+
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseConnection.class);
 
     private static final String HOST = dotenv.get("DB_HOST");
     private static final String PORT = dotenv.get("DB_PORT");
@@ -50,18 +55,19 @@ public class DatabaseConnection {
                 + "data_hora TIMESTAMP"
                 + ");";
 
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); // <--- Este estava correto
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              Statement stmt = conn.createStatement()) {
 
             stmt.execute(sqlCriarTabelaMateriais);
             stmt.execute(sqlCriarTabelaUsuarios);
             stmt.execute(sqlCriarTabelaHistorico);
 
-            System.out.println("PostgreSQL: Tabelas verificadas/criadas com sucesso.");
+            logger.info("PostgreSQL: Tabelas verificadas/criadas com sucesso.");
 
         } catch (SQLException e) {
             e.printStackTrace();
-            showAlertError("Erro Crítico de Base de Dados!",
+            logger.error("Erro Crítico no Banco de Dados | {}", e.getMessage());
+            showAlertError("Erro Crítico de Banco de Dados!",
                     "Não foi possível ligar ou inicializar o PostgreSQL.\n" +
                             "Verifique se o Docker está em execução e as credenciais no .env estão corretas.\n\n" +
                             "Erro: " + e.getMessage());
@@ -76,7 +82,7 @@ public class DatabaseConnection {
     // Metodo que atualiza após editar algum campo na tabela
     public static void atualizarBancoDeDados(String coluna, Object novoValor, int id) {
         String sql = "UPDATE materiais SET " + coluna + " = ? WHERE id = ?";
-        try (Connection conn = DatabaseConnection.connect(); // <--- Agora este método funciona!
+        try (Connection conn = DatabaseConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             if (novoValor instanceof Integer) {
@@ -90,7 +96,7 @@ public class DatabaseConnection {
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Erro ao atualizar o Banco de Dados | {}", e.getMessage());
             showAlertError("Erro!", "Erro ao atualizar o Banco de Dados.");
         }
     }

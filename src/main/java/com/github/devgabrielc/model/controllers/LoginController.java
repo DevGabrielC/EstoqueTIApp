@@ -23,7 +23,6 @@ import java.sql.SQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.github.devgabrielc.model.services.Functions.dataHora;
 import static com.github.devgabrielc.model.services.Functions.showAlertError;
 
 public class LoginController {
@@ -47,7 +46,7 @@ public class LoginController {
         String username = userTextField.getText();
         String password = passwordField.getText();
 
-        logger.info("INFO | {} | Tentativa de login | Usuario: {}", dataHora, username);
+        logger.info("Tentativa de login | Usuario: {}", username);
 
         if (validarLogin(username, password)) {
             try {
@@ -59,12 +58,12 @@ public class LoginController {
                 stage.setMaximized(true);
                 stage.setTitle("Estoque TI");
                 stage.show();
-                logger.info("INFO | {} | Login bem sucedido | Usuario: {}", dataHora, username);
+                logger.info("Login bem sucedido | Usuario: {}", username);
             } catch (IOException e) {
-                logger.error("ERROR | {} | {} ", dataHora, e.getMessage());
+                logger.error("Erro de login no usuario {} | {} ",username, e.getMessage());
             }
         } else {
-            logger.error("WARN | {} | Login falhou | Usuario ou senha incorretos.", dataHora);
+            logger.error("Usuario ou senha incorretos | Usuario: {}", username);
         }
     }
 
@@ -79,7 +78,8 @@ public class LoginController {
             stage.setTitle("Estoque TI");
             stage.show();
         } catch (IOException e) {
-            logger.error("ERROR | {} | {} ", dataHora, e.getMessage());
+            logger.error("Erro ao tentar acessar a tela RegisterScreen.fxml | {}", e.getMessage());
+            showAlertError("Erro!", "Não foi possível carregar a tela (Cadastro).");
         }
     }
 
@@ -92,7 +92,7 @@ public class LoginController {
             ResultSet rs = pstmt.executeQuery();
             return rs.next();
         } catch (SQLException e) {
-            logger.error("ERROR | {} | {} ", dataHora, e.getMessage());
+            logger.error("Erro ao validar cadastro | {} ", e.getMessage());
         }
         return false;
     }
@@ -125,7 +125,7 @@ public class LoginController {
                 }
             }
         } catch (SQLException e) {
-            logger.error("ERROR | {} | Nao foi possivel verificar as credenciais", dataHora);
+            logger.error("Erro ao verificar as credenciais | {}", e.getMessage());
             return false;
         }
     }

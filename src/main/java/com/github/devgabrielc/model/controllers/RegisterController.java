@@ -17,6 +17,9 @@ import static com.github.devgabrielc.model.controllers.LoginController.*;
 import static com.github.devgabrielc.model.services.Functions.showAlertError;
 import static com.github.devgabrielc.model.services.Functions.showAlertSuccess;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class RegisterController {
     @FXML
     private Button cancelButton;
@@ -28,6 +31,8 @@ public class RegisterController {
     private TextField sobrenomeField;
     @FXML
     private TextField userTextField;
+
+    private static final Logger logger = LoggerFactory.getLogger(RegisterController.class);
 
     // Lógica para a Tela de Cadastro
     @FXML
@@ -56,9 +61,11 @@ public class RegisterController {
 
                     if (affectedRows > 0) {
                         showAlertSuccess("Sucesso!", "Cadastro realizado.");
+                        logger.info("Usuario cadastrado | usuario: {}", username);
                     }
                 } catch (SQLException e) {
                     showAlertError("Erro!", "Erro ao realizar o cadastro.");
+                    logger.error("Erro ao realizar o cadastro | {}", e.getMessage());
                 }
             }
         }
@@ -74,7 +81,8 @@ public class RegisterController {
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Erro ao tentar acessar a tela LoginScreen.fxml | {}", e.getMessage());
+            showAlertError("Erro!", "Não foi possível carregar a tela (Login).");
         }
     }
 }

@@ -1,0 +1,8 @@
+10:41:24.159 | INFO  | com.github.devgabrielc.model.controllers.LoginController - INFO | 2025-11-03 10:41:24 | Tentativa de login | Usuario: usuario.teste
+10:41:25.510 | INFO  | com.github.devgabrielc.model.controllers.LoginController - INFO | 2025-11-03 10:41:24 | Login bem sucedido | Usuario: usuario.teste
+10:44:40.220 | INFO  | com.github.devgabrielc.model.controllers.LoginController - INFO | 2025-11-03 10:44:40 | Tentativa de login | Usuario: usuario.teste
+10:44:41.507 | INFO  | com.github.devgabrielc.model.controllers.LoginController - INFO | 2025-11-03 10:44:40 | Login bem sucedido | Usuario: usuario.teste
+10:44:44.770 | INFO  | com.github.devgabrielc.model.controllers.MainController - Utilizador Usuário Teste fez logout.
+10:47:46.133 | INFO  | com.github.devgabrielc.model.controllers.LoginController - INFO | 2025-11-03 10:47:46 | Tentativa de login | Usuario: usuario.teste
+10:47:47.538 | INFO  | com.github.devgabrielc.model.controllers.LoginController - INFO | 2025-11-03 10:47:46 | Login bem sucedido | Usuario: usuario.teste
+10:48:04.731 | INFO  | com.github.devgabrielc.model.controllers.MainController - Utilizador Usuário Teste fez logout.

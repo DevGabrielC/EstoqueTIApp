@@ -11,9 +11,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane cache="true" minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.devgabrielc.model.controllers.MainController">
+<AnchorPane cache="true" minHeight="400.0" minWidth="600.0" prefWidth="1013.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.devgabrielc.model.controllers.MainController">
    <children>
-      <TableView fx:id="table" editable="true" layoutY="177.0" minHeight="400.0" minWidth="600.0" prefHeight="551.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="177.0">
+      <TableView fx:id="table" editable="true" layoutY="177.0" minHeight="400.0" minWidth="600.0" prefHeight="514.0" prefWidth="1013.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="177.0">
          <columns>
             <TableColumn fx:id="ID" prefWidth="26.0" resizable="false" text="ID" />
             <TableColumn fx:id="grupoEquipamento" prefWidth="129.0" resizable="false" text="Grupo Equipamento" />
@@ -34,12 +34,12 @@
             <Font name="Calibri" size="36.0" />
          </font>
       </Label>
-      <Text fx:id="saudacaoText" layoutX="14.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="320.611328125">
+      <Text fx:id="saudacaoText" layoutX="14.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="377.611328125">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Text fx:id="dataAtualText" layoutX="14.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="320.611328125">
+      <Text fx:id="dataAtualText" layoutX="14.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="377.611328125">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
@@ -93,5 +93,10 @@
             <Font name="Calibri" size="36.0" />
          </font>
       </Label>
+      <Button fx:id="logoutButton" layoutX="955.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Calibri Light" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

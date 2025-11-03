@@ -11,6 +11,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.*;
 
 import static com.github.devgabrielc.model.controllers.LoginController.*;
@@ -37,6 +40,8 @@ public class AtivoImobilizadoController {
     @FXML
     private TextField tipoEquipamentoField;
 
+    private static final Logger logger = LoggerFactory.getLogger(AtivoImobilizadoController.class);
+
     // Ação para adicionar materiais
     // Descrição é opcional
     @FXML
@@ -48,7 +53,6 @@ public class AtivoImobilizadoController {
         String numeroSerie = numeroSerieField.getText();
         String descricao = descricaoArea.getText();
         String patrimonio = patrimonioField.getText();
-
 
         // Obrigatório ter os campos grupoEquipamento, tipoEquipamento, marca, modelo, numeroSerie e patrimonio preenchidos
         // Condição para verificar campos preenchidos
@@ -76,10 +80,10 @@ public class AtivoImobilizadoController {
                 int rowsInserted = stmt.executeUpdate();
                 if (rowsInserted > 0) {
                     showAlertSuccess("Sucesso!", "Material adicionado com sucesso!");
-                    registrarHistorico(usuarioLogado, "Adição", "Material: " + tipoEquipamento + ", Quantidade: 1");
+                    registrarHistorico(usuarioLogado, "Inclusao", "Material: " + tipoEquipamento + ", Quantidade: 1");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error("Erro ao adicionar o material | {}", e.getMessage());
                 showAlertError("Erro!", "Ocorreu um erro ao adicionar o material. Tente novamente.");
         }
     }
@@ -96,7 +100,8 @@ public class AtivoImobilizadoController {
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Erro ao tentar acessar a tela AddScreen.fxml | {}", e.getMessage());
+            showAlertError("Erro!", "Não foi possível carregar a tela (Adicionar Material).");
         }
     }
 }

@@ -20,6 +20,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
@@ -63,6 +66,10 @@ public class MainController {
     private Label editMode;
     @FXML
     private Button exitButton;
+    @FXML
+    private Button logoutButton;
+
+    private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
     @FXML
     public void initialize() throws SQLException {
@@ -82,6 +89,26 @@ public class MainController {
     }
 
     @FXML
+    private void handleLogout() {
+        try {
+            String utilizadorQueSaiu = LoginController.usuarioLogado;
+            LoginController.usuarioLogado = null;
+            logger.info("Utilizador {} fez logout.", utilizadorQueSaiu);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/views/LoginScreen.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) logoutButton.getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            logger.error("Falha ao tentar carregar a LoginScreen.fxml após o logout.", e);
+            showAlertError("Erro!", "Não foi possível carregar a tela (Login).");
+        }
+    }
+
+    @FXML
     private void handleEditScreen(ActionEvent event) {
         table.setEditable(true);
         exitButton.setVisible(true);
@@ -94,7 +121,7 @@ public class MainController {
             String nomeGrupoEquipNovo = event1.getNewValue();
             grupoEquip.setGrupoEquipamento(event1.getNewValue());
             atualizarBancoDeDados("grupo_equipamento", event1.getNewValue(), grupoEquip.getId());
-            registrarHistorico(usuarioLogado, "Edição", "Alteração do nome do grupo de: " + nomeGrupoEquipAnterior + " para: " + nomeGrupoEquipNovo);
+            registrarHistorico(usuarioLogado, "Edicao", "Alteracao do nome do grupo de: " + nomeGrupoEquipAnterior + " para: " + nomeGrupoEquipNovo);
         });
 
         tipoEquipamento.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -104,7 +131,7 @@ public class MainController {
             String nomeTipoEquipNovo = event1.getNewValue();
             tipoEquip.setTipoEquipamento(event1.getNewValue());
             atualizarBancoDeDados("tipo_equipamento", event1.getNewValue(), tipoEquip.getId());
-            registrarHistorico(usuarioLogado, "Edição", "Alteração do nome do tipo de: " + nomeTipoEquipAntigo + " para: " + nomeTipoEquipNovo);
+            registrarHistorico(usuarioLogado, "Edicao", "Alteracao do nome do tipo de: " + nomeTipoEquipAntigo + " para: " + nomeTipoEquipNovo);
         });
 
         marca.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -114,7 +141,7 @@ public class MainController {
             String nomeMarcaNovo = event1.getNewValue();
             marca.setMarca(event1.getNewValue());
             atualizarBancoDeDados("marca", event1.getNewValue(), marca.getId());
-            registrarHistorico(usuarioLogado, "Edição", "Alteração da marca de: " + nomeMarcaAntigo + " para: " + nomeMarcaNovo);
+            registrarHistorico(usuarioLogado, "Edicao", "Alteracao da marca de: " + nomeMarcaAntigo + " para: " + nomeMarcaNovo);
         });
 
         modelo.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -124,7 +151,7 @@ public class MainController {
             String nomeModeloNovo = event1.getNewValue();
             modelo.setModelo(event1.getNewValue());
             atualizarBancoDeDados("modelo", event1.getNewValue(), modelo.getId());
-            registrarHistorico(usuarioLogado, "Edição", "Alteração do modelo de: " + nomeModeloAntigo + " para: " + nomeModeloNovo);
+            registrarHistorico(usuarioLogado, "Edicao", "Alteracao do modelo de: " + nomeModeloAntigo + " para: " + nomeModeloNovo);
         });
 
         numeroSerie.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -134,7 +161,7 @@ public class MainController {
             String numeroSerieNovo = event1.getNewValue();
             numeroSerie.setNumeroSerie(event1.getNewValue());
             atualizarBancoDeDados("numero_serie", event1.getNewValue(), numeroSerie.getId());
-            registrarHistorico(usuarioLogado, "Edição", "Alteração do número de série de: " + numeroSerieAntigo + " para: " + numeroSerieNovo);
+            registrarHistorico(usuarioLogado, "Edicao", "Alteracao do número de série de: " + numeroSerieAntigo + " para: " + numeroSerieNovo);
         });
 
         patrimonio.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
@@ -144,7 +171,7 @@ public class MainController {
             String nomePatrimonioNovo = String.valueOf(event1.getNewValue());
             patrimonio.setPatrimonio(event1.getNewValue());
             atualizarBancoDeDados("patrimonio", event1.getNewValue(), patrimonio.getId());
-            registrarHistorico(usuarioLogado, "Edição", "Alteração do nome patrimônio de: " + nomePatrimonioAntigo + " para: " + nomePatrimonioNovo);
+            registrarHistorico(usuarioLogado, "Edicao", "Alteracao do nome patrimônio de: " + nomePatrimonioAntigo + " para: " + nomePatrimonioNovo);
         });
 
         quantidade.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
@@ -154,7 +181,7 @@ public class MainController {
             int quantidadeNova = event1.getNewValue();
             quantidade.setQuantidade(event1.getNewValue());
             atualizarBancoDeDados("quantidade", event1.getNewValue(), quantidade.getId());
-            registrarHistorico(usuarioLogado, "Edição", "Alteração da quantidade de: " + quantidadeAntiga + " para: " + quantidadeNova);
+            registrarHistorico(usuarioLogado, "Edicao", "Alteracao da quantidade de: " + quantidadeAntiga + " para: " + quantidadeNova);
         });
 
         descricao.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -164,7 +191,7 @@ public class MainController {
             String nomeDescricaoNovo = event1.getNewValue();
             descricao.setDescricao(event1.getNewValue());
             atualizarBancoDeDados("descricao", event1.getNewValue(), descricao.getId());
-            registrarHistorico(usuarioLogado, "Edição", "Alteração da descrição de: " + nomeDescricaoAntigo + " para: " + nomeDescricaoNovo);
+            registrarHistorico(usuarioLogado, "Edicao", "Alteracao da descrição de: " + nomeDescricaoAntigo + " para: " + nomeDescricaoNovo);
         });
     }
 
@@ -185,7 +212,8 @@ public class MainController {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Erro ao tentar acessar a tela AddScreen.fxml | {}", e.getMessage());
+            showAlertError("Erro!", "Não foi possível carregar a tela (Adicionar Material).");
         }
     }
 
@@ -199,6 +227,7 @@ public class MainController {
             if (sucesso) {
                 ((FilteredList<Estoque>) table.getItems()).getSource().remove(itemSelecionado);
                 showAlertSuccess("Sucesso!", "Material removido com sucesso!");
+                logger.info("Material removido com sucesso | {}", getTipoEquipamento(itemSelecionado.getId()));
             } else {
                 showAlertError("Erro!", "Falha ao remover o material do banco de dados.");
             }
@@ -218,14 +247,14 @@ public class MainController {
             int rowsAffected = stmt.executeUpdate();
 
             if (rowsAffected > 0) {
-                registrarHistorico(usuarioLogado, "Remoção", "Material removido: "
+                registrarHistorico(usuarioLogado, "Remocao", "Material removido: "
                                                                                         + materialRemovido
                                                                                         + ", Marca: "
                                                                                         + marcaRemovida);
                 return true;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Erro ao remover item do estoque | {}", e.getMessage());
         }
         return false;
     }
@@ -256,11 +285,10 @@ public class MainController {
                     writer.newLine();
                 }
 
-                // Exibir uma mensagem de sucesso
+                logger.info("CSV gerado por {}", usuarioLogado);
                 showAlertSuccess("Sucesso!", "Arquivo Exportado com Sucesso!");
             } catch (IOException e) {
-                e.printStackTrace();
-                // Exibir uma mensagem de erro
+                logger.error("Erro ao gerar arquivo CSV | {}", e.getMessage());
                 showAlertError("Erro!", "Falha ao Exportar o Arquivo CSV");
             }
         }
@@ -311,7 +339,7 @@ public class MainController {
                 materiais.add(material);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Erro ao carregar materiais | {}", e.getMessage());
         }
 
         table.setItems(materiaisFiltrados);
@@ -324,15 +352,15 @@ public class MainController {
 
         // Verifica o horário do dia
         if (horaAtual.isBefore(LocalTime.NOON)) {
-            saudacao = "Bom dia";
+            saudacao = "Bom dia, ";
         } else if (horaAtual.isBefore(LocalTime.of(17, 59))) {
-            saudacao = "Boa tarde";
+            saudacao = "Boa tarde, ";
         } else {
-            saudacao = "Boa noite";
+            saudacao = "Boa noite, ";
         }
 
         String username = String.valueOf(LoginController.usuarioLogado);
-        saudacaoText.setText(saudacao + ", " + username + "!");
+        saudacaoText.setText(saudacao + username + "!");
     }
 
     // Exibir a data atual na tela principal
@@ -360,7 +388,7 @@ public class MainController {
                 tipoEquipamento = rs.getString("tipo_equipamento");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Erro ao encontrar um tipo equipamento | {}", e.getMessage());
         }
         return tipoEquipamento;
     }
@@ -378,7 +406,7 @@ public class MainController {
                 marca = rs.getString("marca");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Erro ao encontrar uma marca | {}", e.getMessage());
         }
         return marca;
     }

@@ -5,7 +5,9 @@
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"/>
         </Console>
 
-        <File name="FileAppender" fileName="src/main/resources/logs/estoque-app.log"> </File>
+        <File name="FileAppender" fileName="src/main/resources/logs/estoque-app.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} | %-5level | %logger{36} - %msg%n"/>
+        </File>
     </Appenders>
     <Loggers>
         <Root level="debug">

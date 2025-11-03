@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,6 +34,8 @@ public class UsoConsumoController {
     private TextField quantidadeField;
     @FXML
     private TextField tipoEquipamentoField;
+
+    private static final Logger logger = LoggerFactory.getLogger(UsoConsumoController.class);
 
     @FXML
     void handleAddMateriais(ActionEvent event) {
@@ -63,13 +67,13 @@ public class UsoConsumoController {
             if (rowsInserted > 0) {
                 if (Integer.parseInt(quantidadeField.getText()) > 1) {
                     showAlertSuccess("Sucesso!", "Materiais adicionados com sucesso!");
-                    registrarHistorico(usuarioLogado, "Adição", "Material: " + tipoEquipamento + ", Quantidade: " + quantidade);
+                    registrarHistorico(usuarioLogado, "Inclusao", "Material: " + tipoEquipamento + ", Quantidade: " + quantidade);
                 } else {
                     showAlertSuccess("Sucesso!", "Material adicionado com sucesso!");
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Erro ao adicionar o(s) material(is) | {}", e.getMessage());
             showAlertError("Erro!", "Ocorreu um erro ao adicionar o(s) material(is). Tente novamente.");
         }
     }
@@ -85,7 +89,8 @@ public class UsoConsumoController {
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Erro ao tentar acessar a tela AddScreen.fxml | {}", e.getMessage());
+            showAlertError("Erro!", "Não foi possível carregar a tela (Adicionar Material).");
         }
     }
 }

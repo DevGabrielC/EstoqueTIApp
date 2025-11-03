@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -22,6 +24,8 @@ public class AddScreenController {
     @FXML
     private Button ativoImobilizadoButton;
 
+    private static final Logger logger = LoggerFactory.getLogger(AddScreenController.class);
+
     // Ação do botão de Ativo Imobilizado
     @FXML
     void handleAtivoImobilizadoScreen(ActionEvent event) {
@@ -33,6 +37,7 @@ public class AddScreenController {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
+            logger.error("Erro ao tentar acessar a tela AtivoImobilizado.fxml | {}", e.getMessage());
             showAlertError("Erro!", "Não foi possível carregar a tela (Ativo Imobilizado).");
         }
     }
@@ -47,6 +52,7 @@ public class AddScreenController {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e){
+            logger.error("Erro ao tentar acessar a tela UsoConsumo.fxml | {}", e.getMessage());
             showAlertError("Erro!", "Não foi possível carregar a tela (Uso e Consumo).");
         }
     }
@@ -62,7 +68,8 @@ public class AddScreenController {
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Erro ao tentar acessar a tela MainScreen.fxml | {}", e.getMessage());
+            showAlertError("Erro!", "Não foi possível carregar a tela (Uso e Consumo).");
         }
     }
 }
