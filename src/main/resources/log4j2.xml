@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Appenders>
+
         <Console name="ConsoleAppender" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"/>
         </Console>
 
-        <File name="FileAppender" fileName="src/main/resources/logs/estoque-app.log">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} | %-5level | %logger{36} - %msg%n"/>
-        </File>
+        <RollingFile name="RollingFileAppender"
+                     fileName="logs/estoque-app.log"
+                     filePattern="logs/estoque-app-%d{dd-MM-yyyy}.log">
+
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" />
+            </Policies>
+
+            <DefaultRolloverStrategy max="30"/>
+
+        </RollingFile>
+
     </Appenders>
     <Loggers>
         <Root level="debug">
-            <AppenderRef ref="FileAppender"/>
+            <AppenderRef ref="RollingFileAppender"/>
             <AppenderRef ref="ConsoleAppender"/>
         </Root>
     </Loggers>

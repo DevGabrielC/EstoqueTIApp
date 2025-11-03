@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -62,6 +63,7 @@ public class RegisterController {
                     if (affectedRows > 0) {
                         showAlertSuccess("Sucesso!", "Cadastro realizado.");
                         logger.info("Usuario cadastrado | usuario: {}", username);
+                        voltarParaLogin();
                     }
                 } catch (SQLException e) {
                     showAlertError("Erro!", "Erro ao realizar o cadastro.");
@@ -72,6 +74,9 @@ public class RegisterController {
 
     @FXML
     void handleCancelar() {
+        voltarParaLogin();
+    }
+    private void voltarParaLogin() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/views/LoginScreen.fxml"));
             Parent root = loader.load();

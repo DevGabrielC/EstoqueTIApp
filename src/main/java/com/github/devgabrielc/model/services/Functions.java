@@ -2,6 +2,9 @@ package com.github.devgabrielc.model.services;
 
 import com.github.devgabrielc.model.controllers.LoginController;
 import com.github.devgabrielc.model.database.DatabaseConnection;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 
 import java.sql.Connection;
@@ -10,6 +13,7 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

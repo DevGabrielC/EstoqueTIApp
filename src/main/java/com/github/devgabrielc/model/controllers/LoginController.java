@@ -64,6 +64,7 @@ public class LoginController {
             }
         } else {
             logger.error("Usuario ou senha incorretos | Usuario: {}", username);
+            showAlertError("Erro de login!", "Usuario ou senha incorretos");
         }
     }
 

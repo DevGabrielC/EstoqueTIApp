@@ -91,9 +91,9 @@ public class MainController {
     @FXML
     private void handleLogout() {
         try {
-            String utilizadorQueSaiu = LoginController.usuarioLogado;
+            String usuarioQueSaiu = LoginController.usuarioLogado;
             LoginController.usuarioLogado = null;
-            logger.info("Utilizador {} fez logout.", utilizadorQueSaiu);
+            logger.info("Usuario {} fez logout.", usuarioQueSaiu);
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/devgabrielc/model/views/LoginScreen.fxml"));
             Parent root = loader.load();

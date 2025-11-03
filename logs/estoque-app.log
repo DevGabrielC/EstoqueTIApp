@@ -1,0 +1,23 @@
+03-11-2025 15:12:13.576 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.LoginController - Tentativa de login | Usuario: 
+03-11-2025 15:12:13.979 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.database.DatabaseConnection - PostgreSQL: Tabelas verificadas/criadas com sucesso.
+03-11-2025 15:12:14.071 [JavaFX Application Thread] ERROR com.github.devgabrielc.model.controllers.LoginController - Usuario ou senha incorretos | Usuario: 
+15:12:44.916 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.LoginController - Tentativa de login | Usuario: 
+15:12:45.346 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.database.DatabaseConnection - PostgreSQL: Tabelas verificadas/criadas com sucesso.
+15:12:45.432 [JavaFX Application Thread] ERROR com.github.devgabrielc.model.controllers.LoginController - Usuario ou senha incorretos | Usuario: 
+15:13:10.450 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.LoginController - Tentativa de login | Usuario: usuario.teste
+15:13:10.611 [JavaFX Application Thread] ERROR com.github.devgabrielc.model.controllers.LoginController - Usuario ou senha incorretos | Usuario: usuario.teste
+15:14:08.399 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.LoginController - Tentativa de login | Usuario: 
+15:14:08.915 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.database.DatabaseConnection - PostgreSQL: Tabelas verificadas/criadas com sucesso.
+15:14:09.041 [JavaFX Application Thread] ERROR com.github.devgabrielc.model.controllers.LoginController - Usuario ou senha incorretos | Usuario: 
+15:14:18.087 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.LoginController - Tentativa de login | Usuario: usuario.teste
+15:14:18.817 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.LoginController - Login bem sucedido | Usuario: usuario.teste
+15:14:25.718 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.MainController - Usuario Usuário Teste fez logout.
+15:14:54.205 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.RegisterController - Usuario cadastrado | usuario: administrador
+15:23:12.673 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.database.DatabaseConnection - PostgreSQL: Tabelas verificadas/criadas com sucesso.
+15:23:13.936 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.RegisterController - Usuario cadastrado | usuario: gabriel.coelho
+15:23:20.078 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.LoginController - Tentativa de login | Usuario: administrador
+15:23:20.890 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.LoginController - Login bem sucedido | Usuario: administrador
+15:23:22.500 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.MainController - Usuario Usuário Administrador fez logout.
+15:23:27.849 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.LoginController - Tentativa de login | Usuario: administrador
+15:23:28.153 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.LoginController - Login bem sucedido | Usuario: administrador
+15:23:29.478 [JavaFX Application Thread] INFO  com.github.devgabrielc.model.controllers.MainController - Usuario Usuário Administrador fez logout.
